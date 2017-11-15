@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Customer attribute admin menu.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Ajay_Brand::elements" title="Brand" module="Ajay_Brand" sortOrder="70"  resource="Ajay_Brand::elements"/>
+        <add id="Ajay_Brand::category_attributes" title="Category Attributes" module="Ajay_Brand" sortOrder="20" parent="Ajay_Brand::elements" action="brand/category_attribute" resource="Ajay_Brand::category_attributes"/>
+        <add id="Ajay_Brand::category" title="Category" module="Ajay_Brand" action="brand/category" sortOrder="30" parent="Ajay_Brand::elements" resource="Ajay_Brand::category"/>
+        <add id="Ajay_Brand::brand_attributes" title="Brand Attributes" module="Ajay_Brand" sortOrder="40" parent="Ajay_Brand::elements" action="brand/brand_attribute" resource="Ajay_Brand::brand_attributes"/>
+        <add id="Ajay_Brand::brand" title="Brands" module="Ajay_Brand" action="brand/brand" sortOrder="50" parent="Ajay_Brand::elements" resource="Ajay_Brand::brand"/>
+    </menu>
+</config>

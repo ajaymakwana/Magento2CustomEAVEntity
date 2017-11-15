@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 Ajay Makwana (ajaymakwana.mail@gmail.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Life is a code
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="brand.brands.list">
+            <block class="Ajay\Brand\Block\Brand\BrandList\Item" name="brand.brands.list.item" template="brand/list/item.phtml">
+                <block class="Ajay\Brand\Block\Brand\Info" name="brand.brand.info" template="brand/info.phtml" />
+                <action method="setBrandInfoBlockName">
+                    <argument name="name" xsi:type="string">brand.brand.info</argument>
+                </action>
+            </block>
+            <block class="Ajay\Brand\Block\Brand\BrandList\Toolbar" name="brand_list_toolbar" template="brand/list/toolbar.phtml">
+                <block class="Ajay\Brand\Block\Brand\BrandList\Toolbar\Pager" name="brand_list_toolbar_pager">
+                    <action ifconfig="dnbbrand/brand_list/lazyload_enabled" method="setTemplate">
+                        <argument name="template" xsi:type="string">Ajay_Brand::brand/list/toolbar/lazyload.phtml</argument>
+                    </action>
+                    <arguments>
+                        <argument name="lazyload_js" xsi:type="string">Ajay_Brand/js/lazyload</argument>
+                        <argument name="list_wrapper" xsi:type="string">.brand-list-wrapper .brand-list, .brand-list-wrapper .brand-list</argument>
+                    </arguments>
+                </block>
+            </block>
+            <action method="setToolbarBlockName">
+                <argument name="name" xsi:type="string">brand_list_toolbar</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

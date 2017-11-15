@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root" label="Root">
+        <block class="Ajay\Brand\Block\Adminhtml\Brand\Edit\Tab\Banners" name="brand.brand.edit.tab.banners"/>
+        <block class="Magento\Backend\Block\Widget\Grid\Serializer" name="crosssell_grid_serializer">
+            <arguments>
+                <argument name="input_names" xsi:type="string">sort_order</argument>
+                <argument name="grid_block" xsi:type="string">brand.brand.edit.tab.banners</argument>
+                <argument name="callback" xsi:type="string">getSelectedBrandBanners</argument>
+                <argument name="input_element_name" xsi:type="string">brand_banner</argument>
+                <argument name="reload_param_name" xsi:type="string">banner</argument>
+            </arguments>
+        </block>
+    </container>
+</layout>

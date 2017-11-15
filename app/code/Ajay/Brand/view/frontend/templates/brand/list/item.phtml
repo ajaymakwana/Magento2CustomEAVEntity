@@ -1,0 +1,64 @@
+<?php
+/**
+ * Copyright © 2017 Ajay Makwana (ajaymakwana.mail@gmail.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Life is a code
+ */
+?>
+<?php
+/**
+ * Brand brand list item template
+ *
+ * @var $block \Ajay\Brand\Block\Brand\AbstractBrand
+ */
+?>
+<?php
+    $_brand = $this->getBrand();
+    $_brandUrl = $_brand->getBrandUrl();
+    $_brandName = $block->escapeHtml($_brand->getTitle(), null, true);
+?>
+<li class="item product product-item brand-holder-<?php echo $_brand->getId() ?>">
+    <div class="product-item-info" data-container="product-grid">
+        <?php if ($featuredImage = $_brand->getImage()): ?>
+            <a class="product photo product-item-photo" href="<?php echo $_brandUrl ?>" title="<?php echo $_brandName ?>">
+                <!--<span class="product-image-container" style="width:240px;">
+                    <span class="product-image-wrapper">
+                        <img class="product-image-photo" src="<?php /*echo $featuredImage */?>" alt="<?php /*echo $_brandName */?>" height="298" width="240"/>
+                    </span>
+                </span>-->
+                <span class="product-image-container" data-bind="style: {width: 240 + 'px'}">
+                    <span class="product-image-wrapper"  data-bind="style: {'padding-bottom': 298/240*100 + '%'}">
+                        <img src="<?php echo $featuredImage ?>" alt="<?php echo $_brandName ?>" class="product-image-photo" data-bind="style: {width: 240 + 'px'}" />
+                    </span>
+                </span>
+            </a>
+        <?php endif; ?>
+
+
+        <div class="product details product-item-details">
+
+
+
+            <strong class="product name product-item-name">
+                <a class="product-item-link" title="<?php echo $_brandName ?>" href="<?php /* @escapeNotVerified */ echo $_brandUrl ?>">
+                    <?php echo $_brandName ?>
+                </a>
+            </strong>
+        </div>
+    </div>
+
+    <!--<div class="brand-content">
+        <div class="brand-description clearfix">
+
+            <div class="brand-text-hld clearfix">
+                <?php /*echo $block->getShorContent() */?>
+            </div>
+            <a class="brand-read-more" href="<?php /*echo $_brandUrl */?>" title="<?php /*echo $_brandName */?>"
+               >
+               <?php /*echo __('Read more &#187;') */?>
+            </a>
+        </div>
+    </div>-->
+
+</li>

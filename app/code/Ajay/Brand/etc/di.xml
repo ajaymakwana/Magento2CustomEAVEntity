@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Brand attribute.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Define provider class that was used in node dataSource/class -->
+    <virtualType name="BrandGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="filterPool" xsi:type="object" shared="false">BrandGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <!-- collection resolves to standard collection class and filerPool defines new element: -->
+    <!-- This is used for filtering and searching. Used default values for this -->
+    <virtualType name="BrandGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <!-- Register data source. In this case node name must match the one used in <dataSource /> node 
+    in listing xml and it resolves not to collection but to GridCollection class.-->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="brand_brand_attribute_listing_data_source" xsi:type="string">Ajay\Brand\Model\ResourceModel\Brand\Attribute\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Ajay\Brand\Model\ResourceModel\Brand\Attribute\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">ajay_brand_eav_attribute</argument>
+            <argument name="resourceModel" xsi:type="string">Ajay\Brand\Model\ResourceModel\Attribute</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="brand_category_attribute_listing_data_source" xsi:type="string">Ajay\Brand\Model\ResourceModel\Category\Attribute\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Ajay\Brand\Model\ResourceModel\Category\Attribute\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">ajay_brand_eav_attribute</argument>
+            <argument name="resourceModel" xsi:type="string">Ajay\Brand\Model\ResourceModel\Attribute</argument>
+        </arguments>
+    </type>
+    <preference for="Ajay\Brand\Api\Data\BrandInterface" type="Ajay\Brand\Model\Brand" />
+    <preference for="Ajay\Brand\Api\Data\BrandAttributeInterface" type="Ajay\Brand\Model\ResourceModel\Eav\Attribute" />
+    <preference for="Ajay\Brand\Api\BrandRepositoryInterface" type="Ajay\Brand\Model\BrandRepository" />
+    <preference for="Ajay\Brand\Api\BrandAttributeGroupRepositoryInterface" type="Ajay\Brand\Model\BrandAttributeGroupRepository" />
+    <preference for="Ajay\Brand\Api\BrandAttributeRepositoryInterface" type="Ajay\Brand\Model\Brand\Attribute\Repository" />
+    <virtualType name="Ajay\Brand\Ui\DataProvider\Brand\Form\Modifier\Pool" type="Magento\Ui\DataProvider\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="eav" xsi:type="array">
+                    <item name="class" xsi:type="string">Ajay\Brand\Ui\DataProvider\Brand\Form\Modifier\Eav</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+                <item name="categories" xsi:type="array">
+                    <item name="class" xsi:type="string">Ajay\Brand\Ui\DataProvider\Brand\Form\Modifier\Categories</item>
+                    <item name="sortOrder" xsi:type="number">60</item>
+                </item>
+                <item name="system" xsi:type="array">
+                    <item name="class" xsi:type="string">Ajay\Brand\Ui\DataProvider\Brand\Form\Modifier\System</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                </item>
+                <item name="websites" xsi:type="array">
+                    <item name="class" xsi:type="string">Ajay\Brand\Ui\DataProvider\Brand\Form\Modifier\Websites</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                </item>
+                <item name="related" xsi:type="array">
+                    <item name="class" xsi:type="string">Ajay\Brand\Ui\DataProvider\Brand\Form\Modifier\Related</item>
+                    <item name="sortOrder" xsi:type="number">110</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Ajay\Brand\Ui\DataProvider\Brand\Form\BrandDataProvider">
+        <arguments>
+            <argument name="pool" xsi:type="object">Ajay\Brand\Ui\DataProvider\Brand\Form\Modifier\Pool</argument>
+        </arguments>
+    </type>
+    <type name="Ajay\Brand\Ui\DataProvider\Brand\Form\Modifier\Related">
+        <arguments>
+            <argument name="scopeName" xsi:type="string">product_form.product_form</argument>
+        </arguments>
+    </type>
+
+
+    <!-- -->
+
+    <preference for="Ajay\Brand\Api\Data\Category\CategoryInterface" type="Ajay\Brand\Model\Category" />
+    <preference for="Ajay\Brand\Api\Data\Category\CategoryAttributeInterface" type="Ajay\Brand\Model\ResourceModel\Category\Eav\Attribute" />
+    <preference for="Ajay\Brand\Api\Category\CategoryRepositoryInterface" type="Ajay\Brand\Model\CategoryRepository" />
+    <preference for="Ajay\Brand\Api\Category\CategoryAttributeGroupRepositoryInterface" type="Ajay\Brand\Model\CategoryAttributeGroupRepository" />
+    <preference for="Ajay\Brand\Api\Category\CategoryAttributeRepositoryInterface" type="Ajay\Brand\Model\Category\Attribute\Repository" />
+    <virtualType name="Ajay\Brand\Ui\DataProvider\Category\Form\Modifier\Pool" type="Magento\Ui\DataProvider\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="eav" xsi:type="array">
+                    <item name="class" xsi:type="string">Ajay\Brand\Ui\DataProvider\Category\Form\Modifier\Eav</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+                <item name="system" xsi:type="array">
+                    <item name="class" xsi:type="string">Ajay\Brand\Ui\DataProvider\Category\Form\Modifier\System</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                </item>
+                <item name="websites" xsi:type="array">
+                    <item name="class" xsi:type="string">Ajay\Brand\Ui\DataProvider\Category\Form\Modifier\Websites</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                </item>
+                <item name="related" xsi:type="array">
+                    <item name="class" xsi:type="string">Ajay\Brand\Ui\DataProvider\Category\Form\Modifier\Related</item>
+                    <item name="sortOrder" xsi:type="number">110</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Ajay\Brand\Ui\DataProvider\Category\Form\CategoryDataProvider">
+        <arguments>
+            <argument name="pool" xsi:type="object">Ajay\Brand\Ui\DataProvider\Category\Form\Modifier\Pool</argument>
+        </arguments>
+    </type>
+
+
+    <!-- -->
+    <preference for="Ajay\Brand\Model\Locator\LocatorInterface" type="Ajay\Brand\Model\Locator\RegistryLocator"/>
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Ajay\Brand\Api\Data\BrandInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">ajay_brand_entity</item>
+                    <item name="eavEntityType" xsi:type="string">ajay_brand</item>
+                    <item name="identifierField" xsi:type="string">entity_id</item>
+                    <item name="entityContext" xsi:type="array">
+                        <item name="store" xsi:type="string">Magento\Store\Model\StoreScopeProvider</item>
+                    </item>
+                </item>
+                <item name="Ajay\Brand\Api\Data\Category\CategoryInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">ajay_brand_category_entity</item>
+                    <item name="eavEntityType" xsi:type="string">ajay_brand_category</item>
+                    <item name="identifierField" xsi:type="string">entity_id</item>
+                    <item name="entityContext" xsi:type="array">
+                        <item name="store" xsi:type="string">Magento\Store\Model\StoreScopeProvider</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

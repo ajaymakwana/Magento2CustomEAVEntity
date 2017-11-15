@@ -1,0 +1,45 @@
+<?php
+/**
+ * Copyright © 2017 Ajay Makwana (ajaymakwana.mail@gmail.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Life is a code
+ */
+?>
+<?php
+/**
+ * Brand sidebar search form template
+ *
+ * @var $block \Ajay\Brand\Block\Sidebar\Search
+ */
+?>
+
+<div class="widget block brand-search" data-bind="scope: 'brand-search'">
+	<div class="block-content">
+		<form class="form" id="brand_search_mini_form" action="<?php echo $block->getFormUrl() ?>" method="get">
+            <div class="field search">
+                <label class="label" for="brand_search">
+                    <span><?php echo __('Search') ?></span>
+                </label>
+                <div class="control">
+                    <input id="brand_search" type="text" name="q" value="<?php echo $block->escapeHtml($block->getQuery()) ?>" placeholder="<?php echo __('Search brands here...') ?>" class="input-text" maxlength="128" role="combobox" aria-haspopup="false" aria-autocomplete="both" autocomplete="off">
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit" onclick="return goBrandSearch(this);" title="<?php echo __('Search') ?>" class="action search">
+                    <span><?php echo __('Search') ?></span>
+                </button>
+            </div>
+        </form>
+	</div>
+</div>
+<script type="text/javascript">
+	function goBrandSearch(e)
+	{
+		var value = document.getElementById('brand_search').value;
+		if (value) {
+			window.location = e.form.action + value + '/';
+		}
+		return false;
+	}
+</script>

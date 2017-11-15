@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © 2017 Ajay Makwana (ajaymakwana.mail@gmail.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Life is a code
+ */
+?>
+<?php
+/**
+ * Brand brand list toolbar template
+ *
+ * @var $block \Ajay\Brand\Block\Brand\BrandList\Toolbar
+ */
+?>
+<?php if ($block->getCollection()->getSize()) { ?>
+	<?php $woj = $block->getWidgetOptionsJson() ?>
+    <div class="toolbar toolbar-brand-brands" <?php if ($woj) echo 'data-mage-init="'.$woj.'"' ?>>
+        <?php echo $block->getPagerHtml() ?>
+    </div>
+<?php } ?>

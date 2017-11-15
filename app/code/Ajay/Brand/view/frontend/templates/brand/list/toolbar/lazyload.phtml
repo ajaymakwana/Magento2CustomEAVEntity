@@ -1,0 +1,28 @@
+<?php
+/**
+ * Copyright © 2017 Ajay Makwana (ajaymakwana.mail@gmail.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Life is a code
+ */
+?>
+<?php
+/**
+ * Brand brand list lazyload template
+ *
+ * @var $block \Ajay\Brand\Block\Brand\BrandList\Toolbar\Pager
+ */
+?>
+<?php if ($block->useLazyload()) { ?>
+    <?php
+        $config = $block->getLazyloadConfig([
+            'trigger_element' => '.mbbrand-lazyload-trigger'
+        ]);
+    ?>
+    <div class="dnbbrand-autoloader" data-mage-init='{"<?php echo $block->getLazyloadJs() ?>" : <?php echo $config ?>}'>
+    	<button class="mbbrand-lazyload-trigger dnbbrand-hide-onload action primary" title="<?php echo __('See more') ?>" type="button">
+            <span><?php echo __('See more') ?></span>
+        </button>
+        <img class="brands-loader dnbbrand-show-onload" src="<?php echo $block->getViewFileUrl('images/loader-2.gif') ?>" alt="<?php echo __('Brands loader') ?>" />
+    </div>
+<?php } ?>

@@ -1,0 +1,38 @@
+<?php
+/**
+ * Copyright © 2017 Ajay Makwana (ajaymakwana.mail@gmail.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Life is a code
+ */
+?>
+<?php
+/**
+ * Brand brand next and prev brand links
+ *
+ * @var $block \Ajay\Brand\Block\Brand\View\NextPrev
+ */
+?>
+
+<?php if ($block->displayLinks()) { ?>
+    <?php
+        $prevBrand = $this->getPrevBrand();
+        $nextBrand = $this->getNextBrand();
+    ?>
+    <?php if ($prevBrand || $nextBrand) { ?>
+        <div class="brand-nextprev-hld clearfix">
+            <?php if ($prevBrand) { ?>
+                <?php $title = $block->escapeHtml($prevBrand->getTitle()) ?>
+                <a class="nextprev-link prev-link" href="<?php echo $prevBrand->getBrandUrl() ?>" title="<?php echo __('Read %1',$title) ?>">
+                    <?php echo __('&larr; Previous') ?>
+                </a>
+            <?php } ?>
+            <?php if ($nextBrand) { ?>
+                <?php $title = $block->escapeHtml($nextBrand->getTitle()) ?>
+                <a class="nextprev-link next-link" href="<?php echo $nextBrand->getBrandUrl() ?>" title="<?php echo __('Read %1',$title) ?>">
+                    <?php echo __('Next &rarr;') ?>
+                </a>
+            <?php } ?>
+        </div>
+    <?php } ?>
+<?php } ?>

@@ -1,0 +1,65 @@
+<?php
+/**
+ * Copyright © 2017 Ajay Makwana (ajaymakwana.mail@gmail.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Life is a code
+ */
+?>
+<?php
+/**
+ * Brand brand info template
+ *
+ * @var $block \Ajay\Brand\Block\Brand\Info
+ */
+?>
+
+<?php $_brand = $block->getBrand() ?>
+
+<div class="brand-info clear">
+    <div class="item brand-posed-date">
+        <span class="label"><?php echo __('Branded:') ?></span>
+        <span class="value"><?php echo $_brand->getPublishDate('F d, Y') ?></span>
+    </div>
+    <?php if ($_categoriesCount = $_brand->getCategoriesCount()) { ?>
+    <div class="dash">|</div>
+    <div class="item brand-categories">
+        <span class="label"><?php echo __('Categories:') ?></span>
+        <?php $n = 0; foreach($_brand->getParentCategories() as $ct) { $n++; ?>
+            <a title="<?php echo $block->escapeHtml($ct->getTitle()) ?>" href="<?php echo $ct->getCategoryUrl() ?>">
+                <?php echo $block->escapeHtml($ct->getTitle()) ?>
+            </a>
+            <?php if ($n != $_categoriesCount) { ?>, <?php } ?>
+        <?php } ?>
+    </div>
+    <?php } ?>
+    <?php if ($_tagsCount = $_brand->getTagsCount()) { ?>
+    <div class="dash">|</div>
+    <div class="item brand-categories">
+        <span class="label"><?php echo __('Tags:') ?></span>
+        <?php $n = 0; foreach($_brand->getRelatedTags() as $tag) { $n++; ?>
+            <a title="<?php echo $block->escapeHtml($tag->getTitle()) ?>" href="<?php echo $tag->getTagUrl() ?>">
+                <?php echo $block->escapeHtml($tag->getTitle()) ?>
+            </a>
+            <?php if ($n != $_tagsCount) { ?>, <?php } ?>
+        <?php } ?>
+    </div>
+    <?php } ?>
+    <?php if ($block->authorEnabled()) { ?>
+        <?php if ($_author = $_brand->getAuthor()) { ?>
+        <div class="dash">|</div>
+        <div class="item brand-author">
+            <span class="label"><?php echo __('Author:') ?></span>
+            <span class="value">
+                <?php if ($authorPageEnabled = $block->authorPageEnabled()) { ?>
+                <a title="<?php echo $block->escapeHtml($_author->getTitle()) ?>" href="<?php echo $_author->getAuthorUrl() ?>">
+                <?php } ?>
+                    <?php echo $block->escapeHtml($_author->getTitle()) ?>
+                <?php if ($authorPageEnabled) { ?>
+                </a>
+                <?php } ?>
+            </span>
+        </div>
+        <?php } ?>
+    <?php } ?>
+</div>

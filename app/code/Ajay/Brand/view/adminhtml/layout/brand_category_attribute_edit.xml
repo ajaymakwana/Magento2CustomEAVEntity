@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Edit attribute layout.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Ajay\Brand\Block\Adminhtml\Category\Attribute\Edit" name="attribute_attribute_edit"/>
+        </referenceContainer>
+         <referenceContainer name="left">
+            <block class="Ajay\Brand\Block\Adminhtml\Category\Attribute\Edit\Tabs" name="attribute_edit_tabs">
+                <container label="Main" name="main">
+                    <block class="Ajay\Brand\Block\Adminhtml\Category\Attribute\Edit\Tab\Main" as="base"/>
+                    <block class="Ajay\Brand\Block\Adminhtml\Category\Attribute\Edit\Options\Options" as="advanced"/>
+                    <block class="Ajay\Brand\Block\Adminhtml\Category\Attribute\Edit\Tab\Advanced" as="options"/>
+                </container>
+                <block class="Ajay\Brand\Block\Adminhtml\Category\Attribute\Edit\Options\Labels" as="labels" template="Ajay_Brand::customer/attribute/labels.phtml"/>
+                <block class="Ajay\Brand\Block\Adminhtml\Category\Attribute\Edit\Tab\Front" as="front"/>
+            </block>
+        </referenceContainer>
+         <referenceContainer name="js">
+          <block class="Magento\Backend\Block\Template" name="attribute_edit_js" template="Ajay_Brand::customer/attribute/js.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

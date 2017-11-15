@@ -1,0 +1,29 @@
+<!-- ko if: $parent.source.data.brand[code] -->
+<!-- todo: dynamically get path to file from config or controller -->
+<a attr="href: $parent.source.data.brand[code][0]['url']">
+    <img
+            class="small-image-preview v-middle"
+            tabindex="0"
+            attr="src: $parent.source.data.brand[code][0]['url']" height="22" width="22">
+</a>
+
+<input class="admin__control-file" type="file" data-bind="
+        hasFocus: focused,
+        attr: {
+            name: inputName,
+            placeholder: placeholder,
+            'aria-describedby': noticeId,
+            id: uid,
+            disabled: disabled,
+            form: formId
+        }"
+/>
+<span class="delete-image">
+    <input attr="name: 'brand['+code +'][delete]', id: uid+'_delete', form: formId, disabled: disabled" class="checkbox" type="checkbox">
+    <label attr="for: uid+'_delete'" data-bind="i18n:'Delete'"></label>
+    <input attr="name: $parent.source.data.brand[code]['value'], value: $parent.source.data.brand[code][0]['name']"  type="hidden">
+</span>
+
+
+
+<!-- /ko -->

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Customer attribute access control list.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">                
+                    <resource id="Ajay_Brand::elements" title="Brand" translate="title">
+                        <resource id="Ajay_Brand::brand_attributes" title="Brand Attributes" sortOrder="50" translate="title"/>
+                        <resource id="Ajay_Brand::save" title="Save Attribute" sortOrder="10" translate="title"/>
+                        <resource id="Ajay_Brand::attribute_delete" title="Delete Attribute" sortOrder="20" translate="title"/>
+                    </resource>               
+            </resource>
+        </resources>
+    </acl>
+</config>

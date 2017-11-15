@@ -1,0 +1,45 @@
+<?php
+/**
+ * Copyright © 2017 Ajay Makwana (ajaymakwana.mail@gmail.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Life is a code
+ */
+?>
+<?php
+/**
+ * Brand brand view template
+ *
+ * @var $block \Ajay\Brand\Block\Brand\View
+ */
+?>
+<?php
+    $_brand = $this->getBrand();
+    $_brandUrl = $_brand->getBrandUrl();
+    $_brandName = $block->escapeHtml($_brand->getTitle(), null, true);
+?>
+<div class="brand-view">
+    <div class="brand-holder brand-holder-<?php echo $_brand->getId() ?>">
+        <div class="brand-header clearfix">
+            <?php echo $this->getInfoHtml() ?>
+        </div>
+
+        <div class="brand-content">
+            <div class="brand-description clearfix">
+                <?php if ($featuredImage = $_brand->getImage()) { ?>
+                <div class="brand-ftimg-hld">
+                    <img src="<?php echo $featuredImage ?>" alt="<?php echo $_brandName ?>" />
+                </div>
+                <?php } ?>
+                <div class="brand-text-hld">
+                    <?php echo $block->getContent() ?>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand-bottom">
+            <?php echo $this->getChildHtml('brand.brand.bottom') ?>
+        </div>
+    </div>
+</div>

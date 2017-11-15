@@ -1,0 +1,236 @@
+/**
+ * Copyright © 2017 Ajay Makwana (ajaymakwana.mail@gmail.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Life is a code
+ */
+
+.clearfix:after {
+  content:"";
+  display:table;
+  clear:both;
+}
+
+.brand-holder {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    brand: #F5F5F5;
+    padding: 20px;
+}
+
+.brand-holder:hover {
+    box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.brand-holder .brand-header {position:relative;}
+
+.brand-holder .brand-header .brand-info {padding: 0 0 10px 0;}
+.brand-holder .brand-header .brand-info .item,
+.brand-holder .brand-header .brand-info .dash {display: inline-block;}
+.brand-holder .brand-header .brand-info .label {font-weight: 700;}
+.brand-holder .brand-header .brand-info .value {font-style: italic;}
+
+
+.brand-list {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+.brand-list .brand-content .brand-read-more {padding-top:10px; float:right;}
+
+.brand-category-view .category-content {padding-left: 40px;}
+
+.brand-content .brand-description img {margin:0 15px 0 15px;}
+.brand-content .brand-description ul,
+.brand-content .brand-description ol {list-style-position: inside;}
+
+.brand-content .brand-description .brand-ftimg-hld {float: left; margin: 0 15px 0 15px; width: 33%}
+.brand-content .brand-description .brand-ftimg-hld img {width:100%; padding:0px; margin:0px;}
+@media (max-width: 496px) {
+  .brand-content .brand-description .brand-ftimg-hld {width: 100%; margin:0px;}
+}
+
+.brand-list .brand-header .brand-title {max-width:80%;}
+.brand-list .brand-header .brand-title a {
+    text-decoration: none;
+    font-size: 22px;
+    color: #636363;
+}
+
+
+
+.brand-list .brand-header .brand-title {
+    margin: 0px;
+    padding: 10px 0;
+    float:left;
+}
+
+
+.brand-list .hidden {display:none;}
+
+
+.brand-view .brand-bottom {margin-top:30px;}
+
+.brand-view .brand-nextprev-hld  {margin-bottom: 30px;}
+.brand-view .brand-nextprev-hld .nextprev-link {font-weight: 700;}
+.brand-view .brand-nextprev-hld .prev-link {float:left}
+.brand-view .brand-nextprev-hld .next-link {float:right}
+
+.brand-view .brand-gallery {margin:15px 0 15px 0}
+.brand-view .brand-gallery .gallery-image-hld {margin: 0 14px 14px 0; border:1px solid #ccc; display: block; float:left}
+.brand-view .brand-gallery .gallery-image{padding: 0px; margin:0px; display:block}
+
+.brand-view .block {margin-bottom: 30px;}
+
+.widget.block-recent-brands .block-content .item {
+        padding: 8px 0 0px 0px;
+}
+
+.widget.block-categories ul {
+    list-style: initial;
+    padding-left:0px;
+}
+
+.widget.block-categories ul ul {
+    margin-left:20px;
+}
+
+.widget.block-categories ul,
+.widget.block-categories li {
+    margin: 5px 0 5px 9px;
+    padding: 0px;
+}
+
+.widget.block-rss .rss-icon {float: left; width: 23px; padding-right: 10px;}
+
+
+.widget.brand-search {
+    width:100%;
+    margin-bottom: 40px;
+    position: relative;
+    float: right;
+    padding-left: 15px;
+    z-index: 4;
+}
+
+.widget.brand-search .block-content {
+    margin-bottom: 0;
+}
+
+.widget.brand-search  label {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    text-decoration: none;
+    display: inline-block;
+    float: right;
+}
+
+.widget.brand-search .control {
+    border-top: 0;
+    margin: 0;
+    padding: 0;
+    clear: both;
+}
+
+.widget.brand-search input {
+    position: static;
+    padding-right: 35px;
+    margin: 0;
+    left: -300%;
+}
+
+.widget.brand-search .action.search {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    z-index: 1;
+    display: inline-block;
+    brand-image: none;
+    brand: none;
+    -moz-box-sizing: content-box;
+    border: 0;
+    box-shadow: none;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    text-shadow: none;
+    font-weight: 400;
+}
+
+.widget.brand-search .action.search:before {
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    line-height: 32px;
+    color: #8f8f8f;
+    content: '\e615';
+    font-family: 'luma-icons';
+    margin: 0;
+    vertical-align: top;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
+}
+
+.widget.brand-search .action.search > span {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/* Tag claud widget */
+.widget.block-tagclaud .smallest{font-size: 0.75em}
+.widget.block-tagclaud .small{font-size:1em}
+.widget.block-tagclaud .medium{font-size:1.25em}
+.widget.block-tagclaud .large{font-size:1.5em}
+.widget.block-tagclaud .largest{font-size:2em}
+
+.brand-widget-recent .brand-list {
+    padding: 0px;
+    margin: 0px;
+}
+
+.brand-widget-recent .brand-holder {
+    width: 29%;
+    float: left;
+    margin: 5px;
+}
+
+.brand-widget-recent .brand-description .brand-text-hld {
+    max-height: 150px;
+    min-height: 150px;
+    overflow-y: auto;
+}
+
+.brand-widget-recent-masonry .brand-description .brand-text-hld {
+    max-height: none;
+    min-height: 0;
+}
+.brand-widget-recent-masonry .brand-description .brand-ftimg-hld {
+    width: 100%;
+    margin: 0px;
+}
+
+.dnbbrand-autoloader {text-align: center;}
+.dnbbrand-autoloader .dnbbrand-show-onload {display: none;}
+
+
+@media (max-width: 420px) {
+  #dnbbrand_gcomments {max-width:345px; overflow-y: scroll;}
+}

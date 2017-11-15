@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 Ajay Makwana (ajaymakwana.mail@gmail.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Life is a code
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <dnbbrand>
+            <general>
+                <enabled>1</enabled>
+            </general>
+            <index_page>
+                <title>Brand</title>
+            </index_page>
+            <brand_view>
+                <related_brands>
+                    <enabled>1</enabled>
+                    <number_of_brands>5</number_of_brands>
+                </related_brands>
+                <related_products>
+                    <enabled>1</enabled>
+                    <number_of_products>5</number_of_products>
+                </related_products>
+                <comments>
+                    <type>facebook</type>
+                    <number_of_comments>4</number_of_comments>
+                </comments>
+                <nextprev>
+                    <enabled>1</enabled>
+                </nextprev>
+            </brand_view>
+            <brand_list>
+                <brands_per_page>10</brands_per_page>
+                <lazyload_padding>200</lazyload_padding>
+            </brand_list>
+            <author>
+                <enabled>1</enabled>
+                <page_enabled>1</page_enabled>
+            </author>
+            <sidebar>
+                <search>
+                    <enabled>1</enabled>
+                    <sort_order>10</sort_order>
+                </search>
+                <categories>
+                    <enabled>1</enabled>
+                    <show_brands_count>1</show_brands_count>
+                    <sort_order>20</sort_order>
+                </categories>
+                <recent_brands>
+                    <enabled>1</enabled>
+                    <brands_per_page>5</brands_per_page>
+                    <sort_order>30</sort_order>
+                </recent_brands>
+                <archive>
+                    <enabled>1</enabled>
+                    <sort_order>40</sort_order>
+                </archive>
+                <tag_claud>
+                    <enabled>1</enabled>
+                    <!-- <max_tags_number>10</max_tags_number> -->
+                    <sort_order>45</sort_order>
+                </tag_claud>
+                <rss_feed>
+                    <title>Brand Rss</title>
+                    <sort_order>50</sort_order>
+                </rss_feed>
+            </sidebar>
+            <product_page>
+                <related_brands_enabled>1</related_brands_enabled>
+                <number_of_related_brands>5</number_of_related_brands>
+            </product_page>
+            <permalink>
+                <route>brand</route>
+                <type>default</type>
+                <brand_route>brand</brand_route>
+                <category_route>category</category_route>
+                <archive_route>archive</archive_route>
+                <tag_route>tag</tag_route>
+                <author_route>author</author_route>
+                <search_route>search</search_route>
+            </permalink>
+            <top_menu>
+                <show_item>1</show_item>
+                <item_text>Brand</item_text>
+            </top_menu>
+        </dnbbrand>
+    </default>
+</config>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Customer attribute layout.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
+    <body>
+        <referenceContainer name="content">
+            <uiComponent name="brand_brand_attribute_listing"/>
+        </referenceContainer>
+    </body>
+</page>

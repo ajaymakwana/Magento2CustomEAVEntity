@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 Ajay Makwana (ajaymakwana.mail@gmail.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Life is a code
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="brand_default"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Ajay\Brand\Block\Brand\View" name="brand.brand" template="brand/view.phtml">
+                <block class="Ajay\Brand\Block\Brand\Info" name="brand.brand.info" template="brand/info.phtml" />
+                <action method="setBrandInfoBlockName">
+                    <argument name="name" xsi:type="string">brand.brand.info</argument>
+                </action>
+                <block class="\Magento\Framework\View\Element\Text\ListText" name="brand.brand.bottom">
+                    <block class="Ajay\Brand\Block\Brand\View\Gallery" name="brand.brand.gallery" as="gallery"  template="Ajay_Brand::brand/view/gallery.phtml" />
+                    <block class="Ajay\Brand\Block\Brand\View\NextPrev" name="brand.brand.nextprev" as="nextprev"  template="Ajay_Brand::brand/view/nextprev.phtml" />
+                    <block class="Ajay\Brand\Block\Brand\View\RelatedBrands" name="brand.brand.relatedbrands" as="relatedbrands"  template="Ajay_Brand::brand/view/relatedbrands.phtml" />
+                    <block class="Ajay\Brand\Block\Brand\View\RelatedProducts" name="brand.brand.relatedproducts" as="relatedproducts"  template="Ajay_Brand::brand/view/relatedproducts.phtml" />
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

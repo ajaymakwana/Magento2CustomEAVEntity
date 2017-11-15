@@ -1,0 +1,38 @@
+<?php
+/**
+ * Copyright © 2017 Ajay Makwana (ajaymakwana.mail@gmail.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Life is a code
+ */
+?>
+<?php
+/**
+ * Product related brands template
+ *
+ * @var $block \Ajay\Brand\Block\Catalog\Product\RelatedBrands
+ */
+?>
+
+<?php if ($block->displayBrands()) { ?>
+    <?php $_brandCollection = $block->getBrandCollection(); ?>
+    <?php if ($_brandCollection->count()) { ?>
+    <div class="block related">
+        <div class="block-title title">
+            <strong id="block-relatedbrands-heading" role="heading" aria-level="2">
+                <?php echo __('Related brands') ?>
+            </strong>
+        </div>
+        <ol class="block-content">
+            <?php foreach ($_brandCollection as $_brand) { ?>
+                <li class="item">
+                    <a class="brand-item-link"
+                       href="<?php echo $_brand->getBrandUrl() ?>">
+                        <?php echo $block->escapeHtml($_brand->getTitle()); ?>
+                    </a>
+                </li>
+            <?php } ?>
+        </ol>
+    </div>
+    <?php } ?>
+<?php } ?>

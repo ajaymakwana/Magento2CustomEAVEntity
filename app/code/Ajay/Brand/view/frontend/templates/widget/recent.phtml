@@ -1,0 +1,85 @@
+<?php
+/**
+ * Copyright © 2017 Ajay Makwana (ajaymakwana.mail@gmail.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Life is a code
+ */
+?>
+<?php
+/**
+ * Brand recent brands widget
+ *
+ * @var $block \Ajay\Brand\Block\Widget\Recent
+ */
+?>
+
+<?php
+    $_brandCollection = $block->getBrandCollection();
+?>
+<?php if ($_brandCollection->count()) { ?>
+<div class="brand-list-wrapper brand-widget-recent">
+    <h3 class="title"><?php echo $block->escapeHtml($block->getTitle()) ?></h3>
+    <ul class="brand-list clearfix">
+        <?php foreach ($_brandCollection as $_brand) { ?>
+            <?php
+                $_brandUrl = $_brand->getBrandUrl();
+                $_brandName = $block->escapeHtml($_brand->getTitle(), null, true);
+            ?>
+            <li class="brand-holder brand-holder-<?php echo $_brand->getId() ?>">
+                <div class="brand-header">
+
+                    <div class="brand-title-holder clearfix">
+                        <div class="brand-title">
+                            <a class="brand-item-link"
+                               href="<?php echo $_brandUrl ?>">
+                                <?php echo $_brandName; ?>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="brand-info clear">
+                        <div class="item brand-posed-date">
+                            <span class="label"><?php echo __('Branded:') ?></span>
+                            <span class="value"><?php echo $_brand->getPublishDate('F d, Y') ?></span>
+                        </div>
+                        <?php if ($_categoriesCount = $_brand->getCategoriesCount()) { ?>
+                        <div class="dash">|</div>
+                        <div class="item brand-categories">
+                            <span class="label"><?php echo __('Categories:') ?></span>
+                            <?php $n = 0; foreach($_brand->getParentCategories() as $ct) { $n++; ?>
+                                <a title="<?php echo $block->escapeHtml($ct->getTitle()) ?>" href="<?php echo $ct->getCategoryUrl() ?>"><?php echo $block->escapeHtml($ct->getTitle()) ?></a>
+                                <?php if ($n != $_categoriesCount) { ?>, <?php } ?>
+                            <?php } ?>
+                        </div>
+                        <?php } ?>
+                    </div>
+                </div>
+
+                <div class="brand-content">
+                    <div class="brand-description clearfix">
+                        <?php if ($featuredImage = $_brand->getImage()) { ?>
+                        <div class="brand-ftimg-hld">
+                            <a href="<?php echo $_brandUrl ?>" title="<?php echo $_brandName ?>">
+                                <img src="<?php echo $featuredImage ?>" alt="<?php echo $_brandName ?>" />
+                            </a>
+                        </div>
+                        <?php } ?>
+                        <div class="brand-text-hld clearfix">
+                            <?php echo $block->getShorContent($_brand) ?>
+                        </div>
+                        <a class="brand-read-more" href="<?php echo $_brandUrl ?>" title="<?php echo $_brandName ?>"
+                           >
+                           <?php echo __('Read more &#187;') ?>
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-footer">
+
+                </div>
+            </li>
+
+        <?php } ?>
+    </ul>
+</div>
+<?php } ?>

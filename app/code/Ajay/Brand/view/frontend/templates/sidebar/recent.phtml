@@ -1,0 +1,37 @@
+<?php
+/**
+ * Copyright © 2017 Ajay Makwana (ajaymakwana.mail@gmail.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Life is a code
+ */
+?>
+<?php
+/**
+ * Brand sidebar recent brands template
+ *
+ * @var $block \Ajay\Brand\Block\Sidebar\Recent
+ */
+?>
+
+<?php
+    $_brandCollection = $block->getBrandCollection();
+?>
+<?php if ($_brandCollection->count()) { ?>
+<div class="widget block block-recent-brands" data-bind="scope: 'recemt-brands'">
+    <div class="block-title">
+        <strong><?php echo __('Recent Brands') ?></strong>
+    </div>
+    <div class="block-content">
+        <?php foreach ($_brandCollection as $_brand) { ?>
+            <div class="item">
+                <a class="brand-item-link"
+                   href="<?php echo $_brand->getBrandUrl() ?>">
+                    <?php echo $block->escapeHtml($_brand->getTitle()) ?>
+                </a>
+            </div>
+
+        <?php } ?>
+    </div>
+</div>
+<?php } ?>
