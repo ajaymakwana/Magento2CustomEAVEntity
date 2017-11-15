@@ -1,5 +1,4 @@
 How to install
-✓ Install via composer (recommend)
 
 Run the following command in Magento 2 root folder:
 
